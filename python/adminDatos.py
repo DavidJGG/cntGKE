@@ -24,7 +24,7 @@ def insertarenBD(nombre, departamento, edad, forma_contagio, estado):
 
     r = redis.Redis(host='34.70.196.45', port=6379)
     try:
-        r.rpush("proyecto2",'{"Nombre" : "'+nombre+'", "Departamento" : "'+departamento+'", "Edad" : '+edad+', "Forma de contagio" : "'+forma_contagio+'", "Estado" : "'+estado+'"}')
+        r.rpush("proyecto2",'{"name" : "'+nombre+'", "depto" : "'+departamento+'", "age" : '+edad+', "form" : "'+forma_contagio+'", "state" : "'+estado+'"}')
     except Exception as e:
         print(e)        
         aux=", NO SE PUDO CONECTAR CON REDIS "+str(e)
