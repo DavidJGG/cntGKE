@@ -7,7 +7,7 @@ import redis
 def insertarenBD(nombre, departamento, edad, forma_contagio, estado):
     res = datos_pb2.Respuesta()
 
-    #---------------------- MONGO -------------------------------
+    #---------------------- MONGO ------------------------------
     con=MongoClient('35.238.79.144',27017)
     res.Enviado=True
     aux=""
