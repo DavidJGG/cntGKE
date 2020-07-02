@@ -4,12 +4,12 @@ import redis
 
 
 print("\n---------------- MONGO ------------------\n")
-con=MongoClient('34.70.196.45',27017)
+con=MongoClient('35.238.79.144',27017)
 try:
     db=con.proyecto2
 
     #db.casos.delete_many({"name":"LUCHO"})
-
+    print("Elementos: "+str(db.casos.count()))
     for x in db.casos.find():
         print(x)
 except Exception as e:
@@ -33,11 +33,12 @@ finally:
 
 print("---------------- REDIS ------------------\n")
 
-r = redis.Redis(host='34.70.196.45', port=6379)
+r = redis.Redis(host='35.238.79.144', port=6379)
 try:
  
     #r.delete("s")
     #r.rpush("proyecto2",'{"Nombre" : "Prueba22", "Departamento" : "San marcos", "Edad" : 37, "Forma de contagio" : "Comunitario", "Estado" : "Muerto"}')
+    print("Elementos: "+str(r.llen("proyecto2")))
     rango=r.lrange('proyecto2', 0, -1)
     for x in rango:
         print(x)
