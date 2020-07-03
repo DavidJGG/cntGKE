@@ -13,7 +13,7 @@ class ServicioDatosStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.obtenerDatos = channel.unary_unary(
+        self.obtenerDatos = channel.stream_stream(
                 '/p2.ServicioDatos/obtenerDatos',
                 request_serializer=datos__pb2.Datos.SerializeToString,
                 response_deserializer=datos__pb2.Respuesta.FromString,
@@ -23,7 +23,7 @@ class ServicioDatosStub(object):
 class ServicioDatosServicer(object):
     """Missing associated documentation comment in .proto file"""
 
-    def obtenerDatos(self, request, context):
+    def obtenerDatos(self, request_iterator, context):
         """Missing associated documentation comment in .proto file"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -32,7 +32,7 @@ class ServicioDatosServicer(object):
 
 def add_ServicioDatosServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'obtenerDatos': grpc.unary_unary_rpc_method_handler(
+            'obtenerDatos': grpc.stream_stream_rpc_method_handler(
                     servicer.obtenerDatos,
                     request_deserializer=datos__pb2.Datos.FromString,
                     response_serializer=datos__pb2.Respuesta.SerializeToString,
@@ -48,7 +48,7 @@ class ServicioDatos(object):
     """Missing associated documentation comment in .proto file"""
 
     @staticmethod
-    def obtenerDatos(request,
+    def obtenerDatos(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -57,7 +57,7 @@ class ServicioDatos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/p2.ServicioDatos/obtenerDatos',
+        return grpc.experimental.stream_stream(request_iterator, target, '/p2.ServicioDatos/obtenerDatos',
             datos__pb2.Datos.SerializeToString,
             datos__pb2.Respuesta.FromString,
             options, channel_credentials,
