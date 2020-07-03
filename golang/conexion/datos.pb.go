@@ -180,11 +180,11 @@ var file_datos_proto_rawDesc = []byte{
 	0x73, 0x70, 0x75, 0x65, 0x73, 0x74, 0x61, 0x12, 0x18, 0x0a, 0x07, 0x45, 0x6e, 0x76, 0x69, 0x61,
 	0x64, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x45, 0x6e, 0x76, 0x69, 0x61, 0x64,
 	0x6f, 0x12, 0x10, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03,
-	0x6d, 0x73, 0x67, 0x32, 0x3d, 0x0a, 0x0d, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x69, 0x6f, 0x44,
-	0x61, 0x74, 0x6f, 0x73, 0x12, 0x2c, 0x0a, 0x0c, 0x6f, 0x62, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x44,
+	0x6d, 0x73, 0x67, 0x32, 0x39, 0x0a, 0x0d, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x69, 0x6f, 0x44,
+	0x61, 0x74, 0x6f, 0x73, 0x12, 0x28, 0x0a, 0x0c, 0x6f, 0x62, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x44,
 	0x61, 0x74, 0x6f, 0x73, 0x12, 0x09, 0x2e, 0x70, 0x32, 0x2e, 0x44, 0x61, 0x74, 0x6f, 0x73, 0x1a,
-	0x0d, 0x2e, 0x70, 0x32, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x75, 0x65, 0x73, 0x74, 0x61, 0x28, 0x01,
-	0x30, 0x01, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x0d, 0x2e, 0x70, 0x32, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x75, 0x65, 0x73, 0x74, 0x61, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -277,7 +277,7 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ServicioDatosClient interface {
-	ObtenerDatos(ctx context.Context, opts ...grpc.CallOption) (ServicioDatos_ObtenerDatosClient, error)
+	ObtenerDatos(ctx context.Context, in *Datos, opts ...grpc.CallOption) (*Respuesta, error)
 }
 
 type servicioDatosClient struct {
@@ -288,91 +288,59 @@ func NewServicioDatosClient(cc grpc.ClientConnInterface) ServicioDatosClient {
 	return &servicioDatosClient{cc}
 }
 
-func (c *servicioDatosClient) ObtenerDatos(ctx context.Context, opts ...grpc.CallOption) (ServicioDatos_ObtenerDatosClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_ServicioDatos_serviceDesc.Streams[0], "/p2.ServicioDatos/obtenerDatos", opts...)
+func (c *servicioDatosClient) ObtenerDatos(ctx context.Context, in *Datos, opts ...grpc.CallOption) (*Respuesta, error) {
+	out := new(Respuesta)
+	err := c.cc.Invoke(ctx, "/p2.ServicioDatos/obtenerDatos", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &servicioDatosObtenerDatosClient{stream}
-	return x, nil
-}
-
-type ServicioDatos_ObtenerDatosClient interface {
-	Send(*Datos) error
-	Recv() (*Respuesta, error)
-	grpc.ClientStream
-}
-
-type servicioDatosObtenerDatosClient struct {
-	grpc.ClientStream
-}
-
-func (x *servicioDatosObtenerDatosClient) Send(m *Datos) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *servicioDatosObtenerDatosClient) Recv() (*Respuesta, error) {
-	m := new(Respuesta)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
+	return out, nil
 }
 
 // ServicioDatosServer is the server API for ServicioDatos service.
 type ServicioDatosServer interface {
-	ObtenerDatos(ServicioDatos_ObtenerDatosServer) error
+	ObtenerDatos(context.Context, *Datos) (*Respuesta, error)
 }
 
 // UnimplementedServicioDatosServer can be embedded to have forward compatible implementations.
 type UnimplementedServicioDatosServer struct {
 }
 
-func (*UnimplementedServicioDatosServer) ObtenerDatos(ServicioDatos_ObtenerDatosServer) error {
-	return status.Errorf(codes.Unimplemented, "method ObtenerDatos not implemented")
+func (*UnimplementedServicioDatosServer) ObtenerDatos(context.Context, *Datos) (*Respuesta, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ObtenerDatos not implemented")
 }
 
 func RegisterServicioDatosServer(s *grpc.Server, srv ServicioDatosServer) {
 	s.RegisterService(&_ServicioDatos_serviceDesc, srv)
 }
 
-func _ServicioDatos_ObtenerDatos_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(ServicioDatosServer).ObtenerDatos(&servicioDatosObtenerDatosServer{stream})
-}
-
-type ServicioDatos_ObtenerDatosServer interface {
-	Send(*Respuesta) error
-	Recv() (*Datos, error)
-	grpc.ServerStream
-}
-
-type servicioDatosObtenerDatosServer struct {
-	grpc.ServerStream
-}
-
-func (x *servicioDatosObtenerDatosServer) Send(m *Respuesta) error {
-	return x.ServerStream.SendMsg(m)
-}
-
-func (x *servicioDatosObtenerDatosServer) Recv() (*Datos, error) {
-	m := new(Datos)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
+func _ServicioDatos_ObtenerDatos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Datos)
+	if err := dec(in); err != nil {
 		return nil, err
 	}
-	return m, nil
+	if interceptor == nil {
+		return srv.(ServicioDatosServer).ObtenerDatos(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/p2.ServicioDatos/ObtenerDatos",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServicioDatosServer).ObtenerDatos(ctx, req.(*Datos))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 var _ServicioDatos_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "p2.ServicioDatos",
 	HandlerType: (*ServicioDatosServer)(nil),
-	Methods:     []grpc.MethodDesc{},
-	Streams: []grpc.StreamDesc{
+	Methods: []grpc.MethodDesc{
 		{
-			StreamName:    "obtenerDatos",
-			Handler:       _ServicioDatos_ObtenerDatos_Handler,
-			ServerStreams: true,
-			ClientStreams: true,
+			MethodName: "obtenerDatos",
+			Handler:    _ServicioDatos_ObtenerDatos_Handler,
 		},
 	},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "datos.proto",
 }

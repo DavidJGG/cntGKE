@@ -15,5 +15,5 @@ message Respuesta{
 }
 
 service ServicioDatos{
-    rpc obtenerDatos(stream Datos) returns (stream Respuesta);
+    rpc obtenerDatos(Datos) returns (Respuesta);
 }
