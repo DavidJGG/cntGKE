@@ -10,8 +10,8 @@ try:
 
     #db.casos.delete_many({"name":"LUCHO"})
     print("Elementos: "+str(db.casos.count()))
-    for x in db.casos.find():
-        print(x)
+    #for x in db.casos.find():
+        #print(x)
 except Exception as e:
     print(e)
 finally:
@@ -40,8 +40,8 @@ try:
     #r.rpush("proyecto2",'{"Nombre" : "Prueba22", "Departamento" : "San marcos", "Edad" : 37, "Forma de contagio" : "Comunitario", "Estado" : "Muerto"}')
     print("Elementos: "+str(r.llen("proyecto2")))
     rango=r.lrange('proyecto2', 0, -1)
-    for x in rango:
-        print(x)
+    #for x in rango:
+        #print(x)
 except Exception as e:
     print(e)
 finally:
