@@ -6,7 +6,7 @@ import (
     "fmt"
     "io/ioutil"
 	"net/http"
-	//"time"
+	"time"
 )
 
 
@@ -19,7 +19,21 @@ type dat struct{
 }
 
 func main() {
-	go f1(99999999999999)
+	tt := 100 * time.Millisecond;
+	println(1)
+	time.Sleep(tt)
+	println(2)
+	time.Sleep(tt)
+	println(3)
+	time.Sleep(tt)
+	println(4)
+	time.Sleep(tt)
+	println(5)
+	time.Sleep(tt)
+	println(6)
+	time.Sleep(tt)
+	println(7)
+	/*go f1(99999999999999)
 	go f2(99999999999999)
 	go f3(99999999999999)
 	go f4(99999999999999)
@@ -39,7 +53,7 @@ func main() {
 	go f18(99999999999999)
 	//time.Sleep(1000 * time.Millisecond)
 	var input string
-	fmt.Scanln(&input)
+	fmt.Scanln(&input)*/
 }
 
 
