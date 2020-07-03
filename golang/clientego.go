@@ -28,7 +28,7 @@ type Resultado struct{
 }
 
 func mandarPorgRPC(nombre string, depto string, edad string, fc string, est string) (*Resultado, error) {
-	time.Sleep(100 * time.Millisecond)
+	time.Sleep(1000 * time.Millisecond)
 	var conn *grpc.ClientConn
 	conn, err := grpc.Dial("cnt-python-svc:50051", grpc.WithInsecure())
 	//conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
