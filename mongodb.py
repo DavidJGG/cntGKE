@@ -4,7 +4,7 @@ import redis
 
 
 print("\n---------------- MONGO ------------------\n")
-con=MongoClient('35.238.79.144',27017)
+con=MongoClient('35.238.115.111',27017)
 try:
     db=con.proyecto2
 
@@ -33,7 +33,7 @@ finally:
 
 print("---------------- REDIS ------------------\n")
 
-r = redis.Redis(host='35.238.79.144', port=6379)
+r = redis.Redis(host='35.238.115.111', port=6379)
 try:
  
     #r.delete("s")
