@@ -1,0 +1,156 @@
+[
+    {
+        "Nombre": "Angie",
+        "Departamento": "Alta Verapaz",
+        "Edad": 10,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Bota",
+        "Departamento": "Baja Verapaz",
+        "Edad": 15,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Carlos",
+        "Departamento": "Chiquimula",
+        "Edad": 85,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Carmen",
+        "Departamento": "Chimaltenango",
+        "Edad": 20,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Recuperado"
+    },
+    {
+        "Nombre": "Gabriela",
+        "Departamento": "Guatemala",
+        "Edad": 22,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Elias",
+        "Departamento": "El Progreso",
+        "Edad": 20,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Edgar",
+        "Departamento": "Escuintla",
+        "Edad": 30,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Se Murio"
+    },
+    {
+        "Nombre": "Hugo",
+        "Departamento": "Huehuetenango",
+        "Edad": 27,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Ingrid",
+        "Departamento": "Izabal",
+        "Edad": 30,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Jalea",
+        "Departamento": "Jalapa",
+        "Edad": 50,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Jenny",
+        "Departamento": "Jutiapa",
+        "Edad": 15,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Paco",
+        "Departamento": "Peten",
+        "Edad": 90,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Quico",
+        "Departamento": "Quetzaltenango",
+        "Edad": 10,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Quepasiones",
+        "Departamento": "Quiche",
+        "Edad": 43,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Robin Hood",
+        "Departamento": "Retalhuleu",
+        "Edad": 50,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Sandra",
+        "Departamento": "Sacatepequez",
+        "Edad": 18,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Salah",
+        "Departamento": "San Marcos",
+        "Edad": 65,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Sergio Ramos",
+        "Departamento": "Santa Rosa",
+        "Edad": 34,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Sandia",
+        "Departamento": "Solola",
+        "Edad": 75,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Susana",
+        "Departamento": "Suchitepequez",
+        "Edad": 41,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    },
+    {
+        "Nombre": "Tono",
+        "Departamento": "Totonicapan",
+        "Edad": 54,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Zuleyma",
+        "Departamento": "Zacapa",
+        "Edad": 85,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Muerto"
+    }
+]
