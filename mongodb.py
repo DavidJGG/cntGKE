@@ -7,7 +7,7 @@ print("\n---------------- MONGO ------------------\n")
 con=MongoClient('35.238.115.111',27017)
 try:
     db=con.proyecto2
-
+    #db.casos.drop()
     #db.casos.delete_many({"name":"LUCHO"})
     print("Elementos: "+str(db.casos.count()))
     #for x in db.casos.find():
