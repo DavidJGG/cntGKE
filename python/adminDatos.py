@@ -8,7 +8,7 @@ def insertarenBD(nombre, departamento, edad, forma_contagio, estado):
     res = datos_pb2.Respuesta()
 
     #---------------------- MONGO ------------------------------
-    con=MongoClient('35.238.115.111',27017)
+    con=MongoClient('35.194.18.116',27017)
     res.Enviado=True
     aux=""
     try:
@@ -22,7 +22,7 @@ def insertarenBD(nombre, departamento, edad, forma_contagio, estado):
         
 #---------------------- REDIS -------------------------------
 
-    r = redis.Redis(host='35.238.115.111', port=6379)
+    r = redis.Redis(host='35.194.18.116', port=6379)
     try:
         r.rpush("proyecto2",'{"name" : "'+nombre+'", "depto" : "'+departamento+'", "age" : '+edad+', "form" : "'+forma_contagio+'", "state" : "'+estado+'"}')
     except Exception as e:
